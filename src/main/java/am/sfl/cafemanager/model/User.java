@@ -1,5 +1,6 @@
 package am.sfl.cafemanager.model;
 
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import java.util.Set;
  */
 
 @Entity
-@javax.persistence.Table (name = "userservice")
+@Table(name = "users")
 public class User {
 
     public enum Role {
@@ -21,24 +22,23 @@ public class User {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long ID;
 
-    @Column (name = "firstname")
+    @Column(name = "firstname")
     private String firstName;
 
-    @Column (name = "lastname")
+    @Column(name = "lastname")
     private String lastName;
 
-    @Column (name = "login")
+    @Column(name = "login")
     private String login;
 
-    @Column (name = "password")
+    @Column(name = "password")
     private String passwordHash;
 
-    @Column (name = "role")
+    @Column(name = "role")
     private Role role;
 
-    @OneToMany
-    @JoinTable (name = "waiter_tables", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "table_id"))
-    private Set<Table> tableList;
+    @OneToMany(mappedBy = "users")
+    private Set<TableC> tableList;
 
     public User() {
     }
@@ -91,11 +91,11 @@ public class User {
         this.role = role;
     }
 
-    public Set<Table> getTableList() {
+    public Set<TableC> getTableList() {
         return tableList;
     }
 
-    public void setTableList(Set<Table> tableList) {
+    public void setTableList(Set<TableC> tableList) {
         this.tableList = tableList;
     }
 }

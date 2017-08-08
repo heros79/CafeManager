@@ -1,15 +1,15 @@
 package am.sfl.cafemanager.service.otherservice;
 
-import am.sfl.cafemanager.model.Table;
+import am.sfl.cafemanager.model.TableC;
 
 /**
  * Created by user on 8/7/2017.
  */
 public interface TableService {
 
-    void cresteTable (Table table);
+    void cresteTable (TableC table);
 
-    Table findByTableNumber (int tableNumber);
+    TableC findByTableNumber (int tableNumber);
 
-    Table findByTableStatus (boolean assigned);
+    TableC findByTableStatus (boolean assigned);
 }

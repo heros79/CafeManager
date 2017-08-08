@@ -5,7 +5,7 @@ import am.sfl.cafemanager.dao.ProductDao;
 import am.sfl.cafemanager.dao.TableDao;
 import am.sfl.cafemanager.model.Order;
 import am.sfl.cafemanager.model.Product;
-import am.sfl.cafemanager.model.Table;
+import am.sfl.cafemanager.model.TableC;
 import am.sfl.cafemanager.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,12 +34,12 @@ public class ActionService implements OrderService, ProductService, TableService
     }
 
     @Override
-    public Order openOrder(Order order, Table table, User user) {
+    public Order openOrder(Order order, TableC table, User user) {
         return orderDao.openOrder(order, table, user);
     }
 
     @Override
-    public Order closeOrder(Order order, Table table, User user) {
+    public Order closeOrder(Order order, TableC table, User user) {
         return orderDao.closeOrder(order, table, user);
     }
 
@@ -54,17 +54,17 @@ public class ActionService implements OrderService, ProductService, TableService
     }
 
     @Override
-    public void cresteTable(Table table) {
+    public void cresteTable(TableC table) {
         tableDao.save(table);
     }
 
     @Override
-    public Table findByTableNumber(int tableNumber) {
+    public TableC findByTableNumber(int tableNumber) {
         return tableDao.findByTableNumber(tableNumber);
     }
 
     @Override
-    public Table findByTableStatus(boolean assigned) {
+    public TableC findByTableStatus(boolean assigned) {
         return tableDao.findByTableStatus(assigned);
     }
 }

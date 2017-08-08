@@ -2,7 +2,6 @@ package am.sfl.cafemanager.model;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Simple JavaBean Object that represents Order status;
@@ -11,26 +10,29 @@ import java.util.Map;
  */
 
 @Entity
-@javax.persistence.Table (name = "orders")
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long ID;
 
-    @Column (name = "order_number")
+    @Column(name = "order_number")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer orderNumber;
 
-    @Column (name = "order_status")
+    @Column(name = "order_status")
     private Boolean orderStatus;
 
-    @OneToOne (mappedBy = "orders")
-    private List<Table> tableList;
+    @Column(name = "total_amount")
+    private Double totalAmount;
 
-    @OneToMany
-    @JoinTable (name = "product_in_order", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn (name = "product_id"))
-    Map <Order, List<Product>> orderListMap;
+    @ManyToOne
+    @JoinTable(name = "waiter_tables", joinColumns = @JoinColumn(name = "table_id"), inverseJoinColumns = @JoinColumn (name = "order_id"))
+    private TableC table;
+
+    @OneToMany(mappedBy = "orders")
+    private List <Product> productList;
 
 
     public Order() {
@@ -60,19 +62,27 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public List<Table> getTableList() {
-        return tableList;
+    public Double getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setTableList(List<Table> tableList) {
-        this.tableList = tableList;
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
-    public Map<Order, List<Product>> getOrderListMap() {
-        return orderListMap;
+    public TableC getTable() {
+        return table;
     }
 
-    public void setOrderListMap(Map<Order, List<Product>> orderListMap) {
-        this.orderListMap = orderListMap;
+    public void setTable(TableC table) {
+        this.table = table;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 }

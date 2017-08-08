@@ -33,7 +33,7 @@ public class UserController {
 
         model.addAttribute("userForm", new User());
 
-        return "redirect:/admin";
+        return "redirect:/manager";
     }
 
     @RequestMapping(value = "/registerwaiter", method = RequestMethod.POST)
@@ -73,8 +73,8 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @RequestMapping(value = {"/waiter"}, method = RequestMethod.GET)
-    public String waiter(Model model) {
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    public String waiter(User user, Model model) {
         return "waiter";
     }
 
