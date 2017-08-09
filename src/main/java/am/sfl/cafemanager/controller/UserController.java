@@ -73,13 +73,13 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "waiter"}, method = RequestMethod.GET)
     public String waiter(User user, Model model) {
-        return "waiter";
+        return "user";
     }
 
     @RequestMapping(value = "/manager", method = RequestMethod.GET)
     public String manager (Model model) {
-        return "manager";
+        return "admin";
     }
 }

@@ -2,6 +2,7 @@ package am.sfl.cafemanager.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -36,9 +37,6 @@ public class User {
 
     @Column(name = "role")
     private Role role;
-
-    @OneToMany(mappedBy = "users")
-    private Set<TableC> tableList;
 
     public User() {
     }
@@ -91,11 +89,4 @@ public class User {
         this.role = role;
     }
 
-    public Set<TableC> getTableList() {
-        return tableList;
-    }
-
-    public void setTableList(Set<TableC> tableList) {
-        this.tableList = tableList;
-    }
 }

@@ -12,7 +12,4 @@ public interface OrderDao extends JpaRepository <Order, Long> {
 
     Order findByOrderNumber (int OrderNumber);
 
-    Order openOrder (Order order, TableC table, User user);
-
-    Order closeOrder (Order order, TableC table, User user);
 }

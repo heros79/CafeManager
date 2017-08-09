@@ -13,7 +13,4 @@ public interface OrderService {
 
     Order findOrderByOrderNumber (int orderNumber);
 
-    Order openOrder (Order order, TableC table, User user);
-
-    Order closeOrder (Order order, TableC table, User user);
 }

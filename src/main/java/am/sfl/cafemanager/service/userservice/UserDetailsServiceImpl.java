@@ -21,8 +21,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserDao userDao;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userDao.findByUserName(userName);
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userDao.findByLogin(login);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 

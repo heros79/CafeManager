@@ -34,16 +34,6 @@ public class ActionService implements OrderService, ProductService, TableService
     }
 
     @Override
-    public Order openOrder(Order order, TableC table, User user) {
-        return orderDao.openOrder(order, table, user);
-    }
-
-    @Override
-    public Order closeOrder(Order order, TableC table, User user) {
-        return orderDao.closeOrder(order, table, user);
-    }
-
-    @Override
     public Product findByProductName(String productName) {
         return productDao.findByProductName(productName);
     }

@@ -28,12 +28,8 @@ public class Order {
     private Double totalAmount;
 
     @ManyToOne
-    @JoinTable(name = "waiter_tables", joinColumns = @JoinColumn(name = "table_id"), inverseJoinColumns = @JoinColumn (name = "order_id"))
+    @JoinColumn (name = "table_id")
     private TableC table;
-
-    @OneToMany(mappedBy = "orders")
-    private List <Product> productList;
-
 
     public Order() {
     }
@@ -78,11 +74,4 @@ public class Order {
         this.table = table;
     }
 
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
-    }
 }

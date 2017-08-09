@@ -25,10 +25,8 @@ public class TableC {
     private boolean tableStatus;
 
     @ManyToOne
+    @JoinColumn (name = "user_id")
     private User user;
-
-    @OneToMany(mappedBy = "tables")
-    private Set <Order> orderList;
 
     public TableC() {
     }
@@ -63,13 +61,5 @@ public class TableC {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Set<Order> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(Set<Order> orderList) {
-        this.orderList = orderList;
     }
 }
