@@ -29,8 +29,9 @@ public class Product {
     private Double productPrice;
 
     @ManyToMany
-    @JoinTable(name = "products_in_table", joinColumns = @JoinColumn (name = "product_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
-    Set<Order> orderSet;
+    @JoinTable (name = "products_in_order", joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private  Set<Order> orderSet;
 
     public Product() {
     }
@@ -73,5 +74,20 @@ public class Product {
 
     public void setOrderSet(Set<Order> orderSet) {
         this.orderSet = orderSet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return productName.equals(product.productName);
+    }
+
+    @Override
+    public int hashCode() {
+        return productName.hashCode();
     }
 }

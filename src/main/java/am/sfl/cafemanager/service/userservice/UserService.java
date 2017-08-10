@@ -9,6 +9,8 @@ public interface UserService {
 
     void saveUser (User user);
 
+    void deleteUser (User user);
+
     User findByLogin (String login);
 
 }

@@ -10,7 +10,7 @@
        <http auto-config="true">
 
               <intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
-              <intercept-url pattern="/manager" access="hasRole('ROLE_ADMIN')"/>
+              <intercept-url pattern="/cafemanager" access="hasRole('ROLE_ADMIN')"/>
               <intercept-url pattern="/registerwaiter" access="hasRole('ROLE_ADMIN')"/>
               <intercept-url pattern="/createtable" access="hasRole('ROLE_ADMIN')"/>
               <intercept-url pattern="/createproduct" access="hasRole('ROLE_ADMIN')"/>

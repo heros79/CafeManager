@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,7 @@ public class UserController {
 
         model.addAttribute("userForm", new User());
 
-        return "redirect:/manager";
+        return "registerwaiter";
     }
 
     @RequestMapping(value = "/registerwaiter", method = RequestMethod.POST)
@@ -41,7 +42,7 @@ public class UserController {
 
         userService.saveUser(userForm);
 
-        return "redirect:/manager";
+        return "registerwaiter";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -67,19 +68,20 @@ public class UserController {
         }
 
         if (request.isUserInRole(User.Role.ROLE_ADMIN.name())) {
-            return "redirect:/manager";
+            return "redirect:/cafemanager";
         }
 
         return "redirect:/login";
     }
 
-    @RequestMapping(value = {"/", "waiter"}, method = RequestMethod.GET)
-    public String waiter(User user, Model model) {
-        return "user";
+    @RequestMapping(value = {"waiter"}, method = RequestMethod.GET)
+    public String waiter (Model model) {
+        return "waiter";
     }
 
-    @RequestMapping(value = "/manager", method = RequestMethod.GET)
+    @RequestMapping(value = "/cafemanager", method = RequestMethod.GET)
     public String manager (Model model) {
-        return "admin";
+        return "cafemanager";
     }
+
 }

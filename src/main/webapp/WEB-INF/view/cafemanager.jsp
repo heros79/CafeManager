@@ -12,5 +12,8 @@
 </head>
 <body>
 
+
+<a href="registerwaiter.jsp">registr</a>
+
 </body>
 </html>

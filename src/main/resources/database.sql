@@ -1,4 +1,4 @@
-CREATE TABLE users (
+/*CREATE TABLE users (
 
  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 
@@ -56,21 +56,21 @@ CREATE TABLE orders (
 
   FOREIGN KEY (table_id) REFERENCES tables (id)
 )
- ENGINE = InnoDB;
+ ENGINE = InnoDB;*/
 
-/*INSERT INTO users VALUES (1, 'admin', 'admin', 'admin', '$2a$11$nc4MfyrBGqjyeIbmqhLTb.P5opIXp/MljuXH/mCz4hExzeF5xPbO2', 1);
+/*INSERT INTO users VALUES (1, 'admin', 'admin', 'admin', '$2a$11$nc4MfyrBGqjyeIbmqhLTb.P5opIXp/MljuXH/mCz4hExzeF5xPbO2', 1);*/
 
-INSERT INTO tables VALUE (1, 1, 0);
+INSERT INTO tables VALUE (1, 1, 0, 1);
 
 INSERT INTO products VALUE (1, 'tea', 'with limon', 100);
 INSERT INTO products VALUE (2, 'tea', 'with peach', 150);
 INSERT INTO products VALUE (3, 'cofee', 'black armenian', 100);
 INSERT INTO products VALUE (4, 'cofee', 'nescafe', 200);
 
-INSERT INTO orders VALUE (1, 0, 1, 0);*/
+INSERT INTO orders VALUE (1, 1, 1, 0, 1);
 
 
-CREATE TABLE products_in_order (
+/*CREATE TABLE products_in_order (
   order_id INT,
   product_id INT,
   amount INT,
@@ -80,4 +80,4 @@ CREATE TABLE products_in_order (
 
   UNIQUE (order_id, product_id)
 )
-  ENGINE = InnoDB;
+  ENGINE = InnoDB;*/

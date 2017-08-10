@@ -2,6 +2,7 @@ package am.sfl.cafemanager.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Simple JavaBean Object that represents Order status;
@@ -30,6 +31,11 @@ public class Order {
     @ManyToOne
     @JoinColumn (name = "table_id")
     private TableC table;
+
+    @ManyToMany
+    @JoinTable (name = "products_in_order", joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List <Product> productList;
 
     public Order() {
     }
@@ -74,4 +80,11 @@ public class Order {
         this.table = table;
     }
 
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
 }
