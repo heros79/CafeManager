@@ -2,7 +2,6 @@ package am.sfl.cafemanager.model;
 
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,6 +20,7 @@ public class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private long ID;
 
     @Column(name = "firstname")
@@ -37,6 +37,9 @@ public class User {
 
     @Column(name = "role")
     private Role role;
+
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<TableC> tableCSet;
 
     public User() {
     }
@@ -87,6 +90,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<TableC> getTableCSet() {
+        return tableCSet;
+    }
+
+    public void setTableCSet(Set<TableC> tableCSet) {
+        this.tableCSet = tableCSet;
     }
 
 }

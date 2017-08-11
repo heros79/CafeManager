@@ -42,7 +42,7 @@ public class UserController {
 
         userService.saveUser(userForm);
 
-        return "registerwaiter";
+        return "redirect:/cafemanager";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

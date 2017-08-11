@@ -39,18 +39,35 @@
 
     <form:form method="POST" modelAttribute="userForm" class="form-signin">
     <h2 class="form-signin-heading">Create your account</h2>
-    <spring:bind path="userName">
+
+        <spring:bind path="firstName">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="firstName" class="form-control" placeholder="Firstname"
+                            autofocus="true"></form:input>
+                <form:errors path="firstName"></form:errors>
+            </div>
+        </spring:bind>
+
+        <spring:bind path="lastName">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="lastName" class="form-control" placeholder="Lastname"
+                            autofocus="true"></form:input>
+                <form:errors path="lastName"></form:errors>
+            </div>
+        </spring:bind>
+
+    <spring:bind path="login">
     <div class="form-group ${status.error ? 'has-error' : ''}">
-        <form:input type="text" path="userName" class="form-control" placeholder="Username"
+        <form:input type="text" path="login" class="form-control" placeholder="Username"
                     autofocus="true"></form:input>
-        <form:errors path="userName"></form:errors>
+        <form:errors path="login"></form:errors>
     </div>
     </spring:bind>
 
-    <spring:bind path="password">
+    <spring:bind path="passwordHash">
     <div class="form-group ${status.error ? 'has-error' : ''}">
-        <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
-        <form:errors path="password"></form:errors>
+        <form:input type="password" path="passwordHash" class="form-control" placeholder="Password"></form:input>
+        <form:errors path="passwordHash"></form:errors>
     </div>
     </spring:bind>
 

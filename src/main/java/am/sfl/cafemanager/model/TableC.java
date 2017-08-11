@@ -16,6 +16,7 @@ public class TableC {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "table_id")
     private long ID;
 
     @Column(name = "table_number")
@@ -27,6 +28,9 @@ public class TableC {
     @ManyToOne
     @JoinColumn (name = "user_id")
     private User user;
+
+    @OneToMany (mappedBy = "table")
+    private  Set<Order> orderSet;
 
     public TableC() {
     }
