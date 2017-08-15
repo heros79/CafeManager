@@ -9,6 +9,8 @@ import am.sfl.cafemanager.model.TableC;
 import am.sfl.cafemanager.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 /**
  * Created by user on 8/7/2017.
  */
@@ -51,6 +53,11 @@ public class ActionService implements OrderService, ProductService, TableService
     @Override
     public TableC findByTableNumber(int tableNumber) {
         return tableDao.findByTableNumber(tableNumber);
+    }
+
+    @Override
+    public List<TableC> findAll() {
+        return tableDao.findAll();
     }
 
     @Override

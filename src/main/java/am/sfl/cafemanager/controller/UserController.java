@@ -74,11 +74,6 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @RequestMapping(value = {"waiter"}, method = RequestMethod.GET)
-    public String waiter (Model model) {
-        return "waiter";
-    }
-
     @RequestMapping(value = "/cafemanager", method = RequestMethod.GET)
     public String manager (Model model) {
         return "cafemanager";

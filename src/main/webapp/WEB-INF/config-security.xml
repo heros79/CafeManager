@@ -30,6 +30,8 @@
        <beans:bean id="userDetailsServiceImpl"
                    class="am.sfl.cafemanager.service.userservice.UserDetailsServiceImpl"></beans:bean>
 
+       <beans:bean id="actionService" class="am.sfl.cafemanager.service.otherservice.ActionService"></beans:bean>
+
        <beans:bean id="encoder"
                    class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
               <beans:constructor-arg name="strength" value="11"/>
