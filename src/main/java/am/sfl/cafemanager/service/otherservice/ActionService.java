@@ -8,12 +8,14 @@ import am.sfl.cafemanager.model.Product;
 import am.sfl.cafemanager.model.TableC;
 import am.sfl.cafemanager.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by user on 8/7/2017.
  */
+@Service
 public class ActionService implements OrderService, ProductService, TableService {
 
     @Autowired
@@ -56,12 +58,17 @@ public class ActionService implements OrderService, ProductService, TableService
     }
 
     @Override
-    public List<TableC> findAll() {
+    public List<TableC> findAllTables() {
         return tableDao.findAll();
     }
 
     @Override
     public TableC findByTableStatus(boolean assigned) {
         return tableDao.findByTableStatus(assigned);
+    }
+
+    @Override
+    public List<Long> tablesListByWaiter(long tableId) {
+        return tableDao.tablesListByWaiter(tableId);
     }
 }

@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(User user) {
-        userDao.delete(user.getID());
+        userDao.delete(user.getId());
     }
 
     @Override
@@ -42,4 +42,5 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userDao.findAll();
     }
+
 }

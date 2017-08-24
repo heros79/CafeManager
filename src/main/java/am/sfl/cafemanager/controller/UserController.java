@@ -61,7 +61,6 @@ public class UserController {
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String choise(User user, HttpServletRequest request) {
-        SecurityContextHolder.getContext().getAuthentication().getDetails();
 
         if (request.isUserInRole(User.Role.ROLE_USER.name())) {
             return "redirect:/waiter";

@@ -58,11 +58,13 @@ CREATE TABLE orders (
 )
  ENGINE = InnoDB;*/
 
-INSERT INTO users VALUES (1, 'admin', 'admin', 'admin', '$2a$11$nc4MfyrBGqjyeIbmqhLTb.P5opIXp/MljuXH/mCz4hExzeF5xPbO2', 1);
+/*INSERT INTO users VALUES (1, 'admin', 'admin', 'admin', '$2a$11$nc4MfyrBGqjyeIbmqhLTb.P5opIXp/MljuXH/mCz4hExzeF5xPbO2', 1);
+*/
+/*INSERT INTO tables VALUE (1, 1, 0, 1);*/
 
-/*INSERT INTO tables VALUE (1, 1, 0, 1);
+SELECT * FROM tables WHERE tables.user_id = 2;
 
-INSERT INTO products VALUE (1, 'tea', 'with limon', 100);
+/*INSERT INTO products VALUE (1, 'tea', 'with limon', 100);
 INSERT INTO products VALUE (2, 'tea', 'with peach', 150);
 INSERT INTO products VALUE (3, 'cofee', 'black armenian', 100);
 INSERT INTO products VALUE (4, 'cofee', 'nescafe', 200);

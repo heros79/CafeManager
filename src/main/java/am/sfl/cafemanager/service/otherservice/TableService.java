@@ -13,7 +13,9 @@ public interface TableService {
 
     TableC findByTableNumber (int tableNumber);
 
-    List <TableC> findAll ();
+    List <TableC> findAllTables ();
 
     TableC findByTableStatus (boolean assigned);
+
+    List<Long> tablesListByWaiter (long tableId);
 }

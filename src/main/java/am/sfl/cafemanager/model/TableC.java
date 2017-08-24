@@ -17,7 +17,7 @@ public class TableC {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "table_id")
-    private long ID;
+    private long tableId;
 
     @Column(name = "table_number")
     private Integer tableNumber;
@@ -35,12 +35,12 @@ public class TableC {
     public TableC() {
     }
 
-    public long getID() {
-        return ID;
+    public long getTableId() {
+        return tableId;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setTableId(long tableId) {
+        this.tableId = tableId;
     }
 
     public Integer getTableNumber() {

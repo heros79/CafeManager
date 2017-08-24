@@ -16,7 +16,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long ID;
+    private long id;
 
     @Column(name = "order_number")
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -40,12 +40,12 @@ public class Order {
     public Order() {
     }
 
-    public long getID() {
-        return ID;
+    public long getId() {
+        return id;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Integer getOrderNumber() {

@@ -1,6 +1,5 @@
 package am.sfl.cafemanager.controller;
 
-import am.sfl.cafemanager.dao.TableDao;
 import am.sfl.cafemanager.model.TableC;
 import am.sfl.cafemanager.model.User;
 import am.sfl.cafemanager.service.otherservice.ActionService;
@@ -11,10 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by David on 8/14/2017.
@@ -26,29 +21,42 @@ public class WaiterController{
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ActionService actionService;
+
 
 
     @RequestMapping(value = {"waiter"}, method = RequestMethod.GET)
     public String waiter (Model model) {
-        model.addAttribute("selectForm", userService.findAll());
-        initModelList(model);
+        User user = new User();
+        model.addAttribute("selectForm", user);
+        model.addAttribute("usersList", userService.findAll());
+
+
+
+        model.addAttribute("selectTable", new TableC());
+        model.addAttribute("tablesList", user.getTableCSet());
+
         return "waiter";
     }
 
     @RequestMapping(value = "/waiter", method = RequestMethod.POST)
-    public String waiter(@RequestParam("login") String login, Model model){
-        model.addAttribute("selectForm", userService.findAll());
-        initModelList(model);
+    public String waiter(@ModelAttribute ("selectForm") User selectForm, Model model){
+
+        model.addAttribute("usersList", userService.findAll());
+
+        TableC tableC = new TableC();
+
+        tableC.setUser(selectForm);
+
+        model.addAttribute("selectTable", tableC);
+        model.addAttribute("tablesList", selectForm.getTableCSet());
+
+        for (TableC a: selectForm.getTableCSet()
+             ) {
+System.out.println(a.getTableId());
+        }
+
         return "waiter";
     }
-
-    private void initModelList(Model model) {
-        List<User> userList = userService.findAll();
-        List<String> personalList = new ArrayList<String>();
-        for (User user : userList) {
-            personalList.add(user.getLogin());
-        }
-        model.addAttribute("userList", personalList);
-    }
-
 }

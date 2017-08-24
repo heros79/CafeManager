@@ -2,6 +2,8 @@ package am.sfl.cafemanager.dao;
 
 import am.sfl.cafemanager.model.TableC;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -15,4 +17,8 @@ public interface TableDao extends JpaRepository <TableC, Long> {
     TableC findByTableStatus (boolean assigned);
 
     List<TableC> findAll ();
+
+    @Query(value = "SELECT table_id FROM tables WHERE tables.user_id = ?1", nativeQuery = true)
+    List<Long> tablesListByWaiter (@Param("user_id") long id);
+
 }
